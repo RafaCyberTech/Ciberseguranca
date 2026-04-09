@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criptografia - RafaCyber</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -12,7 +15,12 @@
             <div class="logo">
                 <img src="img/logo.png" alt="Logo RafaCyber">
             </div>
-            <nav class="main-nav">
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav" id="main-nav">
                 <a href="index.html">Início</a>
                 <a href="sobre.html">Sobre</a>
                 <a href="dicasdeseguranaca.html">Dicas de Segurança</a>
@@ -35,16 +43,45 @@
             <div class="content-grid">
                 <section class="section">
                     <h3>O que é criptografia?</h3>
-                    <p>É o processo de codificar informações para impedir que pessoas não autorizadas leiam o conteúdo.</p>
+                    <p>
+                        É o processo de codificar informações para impedir que pessoas não autorizadas leiam o conteúdo.
+                        A ideia é transformar a mensagem original em algo ilegível para quem não tem a chave correta.
+                    </p>
+                    <p>
+                        Exemplo simples: quando envia uma mensagem num aplicativo com proteção ponta a ponta,
+                        o conteúdo pode ser protegido enquanto viaja pela internet.
+                    </p>
                 </section>
 
                 <section class="section">
                     <h3>Tipos principais</h3>
                     <ul class="feature-list">
-                        <li>Simétrica: usa a mesma chave para cifrar e decifrar.</li>
-                        <li>Assimétrica: usa uma chave pública e uma chave privada.</li>
-                        <li>Hash: gera um valor fixo para verificar integridade.</li>
+                        <li>Simétrica: usa a mesma chave para cifrar e decifrar. Exemplo: proteger um ficheiro com uma senha única.</li>
+                        <li>Assimétrica: usa uma chave pública e uma chave privada. Exemplo: enviar e-mails ou trocar dados com segurança.</li>
+                        <li>Hash: gera um valor fixo para verificar integridade. Exemplo: confirmar se um download não foi alterado.</li>
                     </ul>
+                </section>
+
+                <section class="section">
+                    <h3>Exemplos práticos no dia a dia</h3>
+                    <p>
+                        A criptografia aparece em várias situações comuns, muitas vezes sem o utilizador perceber.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Sites com <code>HTTPS</code> protegem a comunicação entre o navegador e o servidor.</li>
+                        <li>Aplicações de mensagens podem proteger conversas para que só o remetente e o destinatário leiam o conteúdo.</li>
+                        <li>Cartões bancários e sistemas de pagamento usam mecanismos criptográficos para validar operações.</li>
+                        <li>Palavras-passe guardadas em sistemas seguros normalmente não ficam visíveis em texto simples, mas protegidas por hash.</li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <h3>Porque é importante?</h3>
+                    <p>
+                        Sem criptografia, dados sensíveis como senhas, mensagens privadas e informações bancárias
+                        poderiam ser lidos ou alterados facilmente por terceiros. Ela ajuda a manter a confidencialidade,
+                        a integridade e a confiança na comunicação digital.
+                    </p>
                 </section>
             </div>
 
@@ -58,7 +95,7 @@
         <div class="container site-footer-grid">
             <section class="footer-brand">
                 <h3>RafaCyber</h3>
-                <p>Seguranca alem do click. Encontre-me tambem nas minhas outras plataformas.</p>
+                <p>Segurança além do click. Encontre-me também nas minhas outras plataformas.</p>
             </section>
 
             <section class="footer-nav"></section>
@@ -115,7 +152,7 @@
             </section>
         </div>
         <div class="container footer-bottom">
-            <p>&copy; 2026 RafaCyber | Seguranca alem do click!</p>
+            <p>&copy; 2026 RafaCyber | Segurança além do click!</p>
         </div>
     </footer>
 </body>

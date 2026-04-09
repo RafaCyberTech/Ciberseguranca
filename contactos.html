@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactos - RafaCyber</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -13,7 +16,12 @@
             <div class="logo">
                 <img src="img/logo.png" alt="Logo RafaCyber">
             </div>
-            <nav class="main-nav">
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav" id="main-nav">
                 <a href="index.html">Início</a>
                 <a href="sobre.html">Sobre</a>
                 <a href="dicasdeseguranaca.html">Dicas de Segurança</a>
@@ -36,11 +44,11 @@
             <div class="contact-grid">
                 <section class="section">
                     <h3>Formulário de contacto</h3>
-                    <form action="#" method="post" class="contact-form">
+                    <form id="contact-form" class="contact-form">
                         <div class="status-message" id="form-status" aria-live="polite"></div>
                         <div>
                             <label for="nome">Nome</label>
-                            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                            <input type="text" id="nome" name="name" placeholder="Seu nome" required>
                         </div>
 
                         <div>
@@ -50,25 +58,25 @@
 
                         <div>
                             <label for="assunto">Assunto</label>
-                            <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required>
+                            <input type="text" id="assunto" name="subject" placeholder="Assunto da mensagem" required>
                         </div>
 
                         <div>
                             <label for="mensagem">Mensagem</label>
-                            <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..." required></textarea>
+                            <textarea id="mensagem" name="message" placeholder="Escreva sua mensagem..." required></textarea>
                         </div>
 
                         <button type="submit" class="btn">Enviar Mensagem</button>
                     </form>
-                    <p class="mini-note">A mensagem é guardada localmente no navegador para fins de demonstração.</p>
                 </section>
 
                 <section class="section">
                     <h3>Outros contactos</h3>
                     <ul class="contact-list">
-                        <li><strong>Email:</strong> rafacyber@gmail.com</li>
-                        <li><strong>Telefone:</strong> +258 84 423 9917</li>
+                        <li><strong>Email:</strong> <a href="mailto:rafiqueusebionorapelana@gmail.com">rafiqueusebionorapelana@gmail.com</a></li>
+                        <li><strong>Celular:</strong> <a href="tel:+258844239917">844239917</a> / <a href="tel:+258870394945">870394945</a></li>
                         <li><strong>Localização:</strong> Pemba, Moçambique</li>
+                        <li><strong>GitHub:</strong> <a href="http://github.com/RafaCyberTech" target="_blank" rel="noopener noreferrer">github.com/RafaCyberTech</a></li>
                     </ul>
 
                     <div class="button-row">
@@ -83,7 +91,7 @@
         <div class="container site-footer-grid">
             <section class="footer-brand">
                 <h3>RafaCyber</h3>
-                <p>Seguranca alem do click. Encontre-me tambem nas minhas outras plataformas.</p>
+                <p>Segurança além do click. Encontre-me também nas minhas outras plataformas.</p>
             </section>
 
             <section class="footer-nav"></section>
@@ -140,7 +148,7 @@
             </section>
         </div>
         <div class="container footer-bottom">
-            <p>&copy; 2026 RafaCyber | Seguranca alem do click!</p>
+            <p>&copy; 2026 RafaCyber | Segurança além do click!</p>
         </div>
     </footer>
 </body>

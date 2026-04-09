@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redes de Computadores - RafaCyber</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -12,7 +15,12 @@
             <div class="logo">
                 <img src="img/logo.png" alt="Logo RafaCyber">
             </div>
-            <nav class="main-nav">
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav" id="main-nav">
                 <a href="index.html">Início</a>
                 <a href="sobre.html">Sobre</a>
                 <a href="dicasdeseguranaca.html">Dicas de Segurança</a>
@@ -28,24 +36,272 @@
             <span class="eyebrow">Conectividade segura</span>
             <h1>Redes de Computadores</h1>
             <p>
-                Redes de computadores ligam dispositivos para partilhar dados, serviços e acesso à internet.
-                Compreender como funcionam ajuda a usar a tecnologia com mais eficiência e segurança.
+                As redes de computadores ligam dispositivos para partilhar dados, serviços e acesso à internet.
+                Quando entendemos essa estrutura, fica mais fácil navegar com eficiência, resolver problemas e
+                perceber onde a segurança da informação entra no processo.
             </p>
+            <p>
+                Esta página explica os principais conceitos de rede com exemplos simples, diagramas visuais e
+                uma visão prática de como tudo funciona no dia a dia.
+            </p>
+
+            <div class="content-split">
+                <div class="section">
+                    <h3>O que é uma rede?</h3>
+                    <p>
+                        Uma rede é um conjunto de dispositivos interligados que comunicam entre si para trocar
+                        informações e recursos. Esses dispositivos podem ser computadores, telemóveis, impressoras,
+                        routers, switches e servidores.
+                    </p>
+                    <p>
+                        Exemplo: numa escola, vários computadores podem usar a mesma rede para aceder à internet,
+                        imprimir documentos e partilhar ficheiros com segurança.
+                    </p>
+                </div>
+
+                <aside class="diagram-box">
+                    <h4>Fluxo básico de uma rede</h4>
+                    <p class="diagram-intro">
+                        A informação sai do dispositivo, passa pelo router e segue pela internet até chegar ao servidor.
+                    </p>
+                    <div class="flow-diagram">
+                        <div class="flow-track">
+                            <div class="flow-step">
+                                <div class="flow-badge">1</div>
+                                <div class="diagram-node">
+                                    Cliente
+                                    <small>PC, telemóvel ou tablet</small>
+                                </div>
+                            </div>
+                            <div class="flow-line" aria-hidden="true"></div>
+                            <div class="flow-step">
+                                <div class="flow-badge">2</div>
+                                <div class="diagram-node">
+                                    Router
+                                    <small>Distribui a ligação</small>
+                                </div>
+                            </div>
+                            <div class="flow-line" aria-hidden="true"></div>
+                            <div class="flow-step">
+                                <div class="flow-badge">3</div>
+                                <div class="diagram-node">
+                                    Internet
+                                    <small>Rede global</small>
+                                </div>
+                            </div>
+                            <div class="flow-line" aria-hidden="true"></div>
+                            <div class="flow-step">
+                                <div class="flow-badge">4</div>
+                                <div class="diagram-node">
+                                    Servidor
+                                    <small>Entrega páginas e dados</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
 
             <div class="content-grid">
                 <section class="section">
-                    <h3>O que é uma rede?</h3>
-                    <p>É um conjunto de dispositivos interligados que comunicam entre si para trocar informações e recursos.</p>
+                    <h3>Elementos básicos de uma rede</h3>
+                    <p>Uma rede costuma ter equipamentos com funções diferentes. Os mais comuns são:</p>
+                    <div class="network-type-grid">
+                        <div class="network-type">
+                            <strong>Cliente</strong>
+                            <p>Dispositivo que pede um serviço, como abrir um site ou enviar uma mensagem.</p>
+                        </div>
+                        <div class="network-type">
+                            <strong>Servidor</strong>
+                            <p>Computador que responde aos pedidos e fornece páginas, ficheiros ou aplicações.</p>
+                        </div>
+                        <div class="network-type">
+                            <strong>Router</strong>
+                            <p>Faz a ligação entre a rede local e outras redes, como a internet.</p>
+                        </div>
+                        <div class="network-type">
+                            <strong>Switch</strong>
+                            <p>Conecta vários dispositivos dentro da mesma rede local.</p>
+                        </div>
+                    </div>
                 </section>
 
                 <section class="section">
                     <h3>Tipos de redes</h3>
+                    <p>
+                        O tamanho e o alcance da rede definem o tipo. Cada uma serve um contexto diferente.
+                    </p>
+                    <div class="network-type-grid">
+                        <div class="network-type">
+                            <strong>LAN</strong>
+                            <p>Rede local. Muito comum em casas, escolas e escritórios.</p>
+                        </div>
+                        <div class="network-type">
+                            <strong>WAN</strong>
+                            <p>Rede ampla. Liga locais distantes, cidades ou até países.</p>
+                        </div>
+                        <div class="network-type">
+                            <strong>MAN</strong>
+                            <p>Rede metropolitana. Cobre uma área urbana maior.</p>
+                        </div>
+                        <div class="network-type">
+                            <strong>PAN</strong>
+                            <p>Rede pessoal. Tem curto alcance, como Bluetooth entre dispositivos próximos.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3>Como os dados viajam</h3>
+                    <p>
+                        Quando abrimos um site ou enviamos uma mensagem, os dados não viajam como um bloco único.
+                        Eles são divididos em pequenos pacotes que seguem pela rede até ao destino.
+                    </p>
                     <ul class="feature-list">
-                        <li>LAN: rede local, comum em casas e escolas.</li>
-                        <li>WAN: rede ampla que liga locais distantes.</li>
-                        <li>MAN: rede usada em áreas metropolitanas.</li>
-                        <li>PAN: conexão de curto alcance entre dispositivos pessoais.</li>
+                        <li>O cliente envia um pedido para um servidor.</li>
+                        <li>O router encaminha a informação para o destino correto.</li>
+                        <li>O servidor responde com os dados solicitados.</li>
+                        <li>O navegador ou aplicação monta o conteúdo novamente no ecrã.</li>
                     </ul>
+                </section>
+
+                <section class="section">
+                    <h3>Topologias de rede</h3>
+                    <p>
+                        A topologia é a forma como os dispositivos se organizam e se ligam entre si.
+                    </p>
+                    <div class="topology-grid">
+                        <article class="topology-card">
+                            <h4>Estrela</h4>
+                            <div class="topology-visual star">
+                                <div class="star-spoke star-spoke-1" aria-hidden="true"></div>
+                                <div class="star-spoke star-spoke-2" aria-hidden="true"></div>
+                                <div class="star-spoke star-spoke-3" aria-hidden="true"></div>
+                                <div class="star-spoke star-spoke-4" aria-hidden="true"></div>
+                                <div class="center-node">Switch</div>
+                                <div class="outer-node outer-1">PC</div>
+                                <div class="outer-node outer-2">PC</div>
+                                <div class="outer-node outer-3">PC</div>
+                                <div class="outer-node outer-4">PC</div>
+                            </div>
+                            <p class="mini-note">
+                                Muito usada em casas e empresas porque facilita manutenção e organização.
+                            </p>
+                        </article>
+
+                        <article class="topology-card">
+                            <h4>Barramento</h4>
+                            <div class="topology-visual bus">
+                                <div class="bus-node"><span></span>PC</div>
+                                <div class="bus-node"><span></span>PC</div>
+                                <div class="bus-node"><span></span>PC</div>
+                                <div class="bus-node"><span></span>PC</div>
+                                <div class="bus-line" aria-hidden="true"></div>
+                            </div>
+                            <p class="mini-note">
+                                Todos os equipamentos partilham o mesmo canal de comunicação.
+                            </p>
+                        </article>
+
+                        <article class="topology-card">
+                            <h4>Anel</h4>
+                            <div class="topology-visual ring">
+                                <div class="ring-circle" aria-hidden="true"></div>
+                                <div class="ring-center">Anel</div>
+                                <div class="ring-node ring-1">PC</div>
+                                <div class="ring-node ring-2">PC</div>
+                                <div class="ring-node ring-3">PC</div>
+                                <div class="ring-node ring-4">PC</div>
+                            </div>
+                            <p class="mini-note">
+                                Os dados percorrem os nós até chegar ao destino, formando um circuito fechado.
+                            </p>
+                        </article>
+
+                        <article class="topology-card">
+                            <h4>Malha</h4>
+                            <div class="topology-visual mesh">
+                                <div class="mesh-link mesh-link-1" aria-hidden="true"></div>
+                                <div class="mesh-link mesh-link-2" aria-hidden="true"></div>
+                                <div class="mesh-link mesh-link-3" aria-hidden="true"></div>
+                                <div class="mesh-link mesh-link-4" aria-hidden="true"></div>
+                                <div class="mesh-link mesh-link-5" aria-hidden="true"></div>
+                                <div class="mesh-link mesh-link-6" aria-hidden="true"></div>
+                                <div class="mesh-center">Hub</div>
+                                <div class="mesh-node mesh-1">PC</div>
+                                <div class="mesh-node mesh-2">PC</div>
+                                <div class="mesh-node mesh-3">PC</div>
+                                <div class="mesh-node mesh-4">PC</div>
+                            </div>
+                            <p class="mini-note">
+                                Vários caminhos aumentam a redundância e tornam a rede mais resistente.
+                            </p>
+                        </article>
+
+                        <article class="topology-card">
+                            <h4>Híbrida</h4>
+                            <div class="topology-visual hybrid">
+                                <div class="hybrid-spine" aria-hidden="true"></div>
+                                <div class="hybrid-cluster hybrid-cluster-left">
+                                    <div class="hybrid-spoke hybrid-spoke-1" aria-hidden="true"></div>
+                                    <div class="hybrid-spoke hybrid-spoke-2" aria-hidden="true"></div>
+                                    <div class="hybrid-spoke hybrid-spoke-3" aria-hidden="true"></div>
+                                    <div class="hybrid-center">PC</div>
+                                    <div class="hybrid-node hybrid-a1">PC</div>
+                                    <div class="hybrid-node hybrid-a2">PC</div>
+                                    <div class="hybrid-node hybrid-a3">PC</div>
+                                </div>
+                                <div class="hybrid-cluster hybrid-cluster-right">
+                                    <div class="hybrid-spoke hybrid-spoke-4" aria-hidden="true"></div>
+                                    <div class="hybrid-spoke hybrid-spoke-5" aria-hidden="true"></div>
+                                    <div class="hybrid-spoke hybrid-spoke-6" aria-hidden="true"></div>
+                                    <div class="hybrid-center">PC</div>
+                                    <div class="hybrid-node hybrid-b1">PC</div>
+                                    <div class="hybrid-node hybrid-b2">PC</div>
+                                    <div class="hybrid-node hybrid-b3">PC</div>
+                                </div>
+                                <div class="hybrid-link hybrid-link-1" aria-hidden="true"></div>
+                                <div class="hybrid-link hybrid-link-2" aria-hidden="true"></div>
+                            </div>
+                            <p class="mini-note">
+                                Combina dois ou mais modelos de rede, como estrela e barramento, para adaptar-se a diferentes necessidades.
+                            </p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h3>Redes e segurança</h3>
+                    <p>
+                        Uma rede bem configurada protege melhor os utilizadores e os dados. Pequenos cuidados fazem
+                        muita diferença na proteção do ambiente digital.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Altere a senha padrão do router.</li>
+                        <li>Use encriptação Wi-Fi segura, como WPA2 ou WPA3.</li>
+                        <li>Mantenha o firmware do equipamento atualizado.</li>
+                        <li>Evite redes públicas para tarefas sensíveis sem proteção adicional.</li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <h3>Exemplo do dia a dia</h3>
+                    <p>
+                        Em casa, um único router pode ligar telemóveis, computadores, televisores e impressoras.
+                        Na escola, a rede pode distribuir internet para várias salas ao mesmo tempo.
+                    </p>
+                    <p>
+                        Na empresa, a rede permite guardar documentos num servidor central, controlar acessos e
+                        partilhar recursos entre departamentos.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h3>Resumo rápido</h3>
+                    <p>
+                        Redes de computadores são a base da comunicação digital. Elas ligam dispositivos, permitem
+                        a partilha de recursos e tornam possível grande parte do que usamos na internet todos os dias.
+                    </p>
                 </section>
             </div>
 
@@ -55,11 +311,11 @@
         </section>
     </main>
 
-<footer class="site-footer">
+    <footer class="site-footer">
         <div class="container site-footer-grid">
             <section class="footer-brand">
                 <h3>RafaCyber</h3>
-                <p>Seguranca alem do click. Encontre-me tambem nas minhas outras plataformas.</p>
+                <p>Segurança além do click. Encontre-me também nas minhas outras plataformas.</p>
             </section>
 
             <section class="footer-nav"></section>
@@ -116,7 +372,7 @@
             </section>
         </div>
         <div class="container footer-bottom">
-            <p>&copy; 2026 RafaCyber | Seguranca alem do click!</p>
+            <p>&copy; 2026 RafaCyber | Segurança além do click!</p>
         </div>
     </footer>
 </body>

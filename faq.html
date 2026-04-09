@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ e Artigos - RafaCyber</title>
+    <title>Quiz - RafaCyber</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header class="site-header">
@@ -12,7 +15,12 @@
             <div class="logo">
                 <img src="img/logo.png" alt="Logo RafaCyber">
             </div>
-            <nav class="main-nav">
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav" id="main-nav">
                 <a href="index.html">Início</a>
                 <a href="sobre.html">Sobre</a>
                 <a href="dicasdeseguranaca.html">Dicas de Segurança</a>
@@ -25,45 +33,98 @@
 
     <main class="page-main">
         <section class="page-card">
-            <span class="eyebrow">Novo conteúdo</span>
-            <h1>FAQ e Artigos</h1>
-            <p>Uma área com respostas rápidas e leituras curtas para apoiar o estudo de segurança digital.</p>
+            <span class="eyebrow">Teste rápido</span>
+            <h1>Quiz de Segurança Digital</h1>
+            <p>
+                Responda uma pergunta de cada vez, veja o feedback imediato e siga para a próxima.
+                No fim aparece a sua pontuação completa.
+            </p>
 
-            <div class="content-grid">
-                <section class="section">
-                    <h3>Artigos rápidos</h3>
-                    <ul class="feature-list">
-                        <li><strong>Phishing:</strong> golpes que tentam roubar dados por email, SMS ou páginas falsas.</li>
-                        <li><strong>Malware:</strong> software malicioso que pode espionar ou bloquear o sistema.</li>
-                        <li><strong>Ransomware:</strong> ataque que cifra os dados e exige pagamento.</li>
-                        <li><strong>Engenharia social:</strong> manipulação para convencer a vítima a entregar informação.</li>
-                    </ul>
-                </section>
-            </div>
+            <form id="security-quiz" class="quiz-form">
+                <div class="quiz-step quiz-question is-active" data-answer="b">
+                    <div class="quiz-step-header">
+                        <h3>1. O que é phishing?</h3>
+                        <span class="quiz-progress">Pergunta 1 de 5</span>
+                    </div>
+                    <label class="quiz-option"><input type="radio" name="q1" value="a"> Um tipo de antivírus.</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="b"> Um golpe para roubar dados através de mensagens falsas.</label>
+                    <label class="quiz-option"><input type="radio" name="q1" value="c"> Uma rede de computadores local.</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                    <div class="quiz-actions">
+                        <button type="button" class="btn quiz-next">Próxima pergunta</button>
+                    </div>
+                </div>
 
-            <div class="faq-grid">
-                <details class="faq-item" open>
-                    <summary>O que é phishing?</summary>
-                    <p>É uma tentativa de enganar o utilizador para roubar palavras-passe, dados bancários ou outras informações sensíveis.</p>
-                </details>
+                <div class="quiz-step quiz-question" data-answer="c">
+                    <div class="quiz-step-header">
+                        <h3>2. Qual é a melhor prática para senhas?</h3>
+                        <span class="quiz-progress">Pergunta 2 de 5</span>
+                    </div>
+                    <label class="quiz-option"><input type="radio" name="q2" value="a"> Usar sempre a mesma senha em tudo.</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="b"> Criar senhas curtas e fáceis de adivinhar.</label>
+                    <label class="quiz-option"><input type="radio" name="q2" value="c"> Usar senhas longas, fortes e diferentes.</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                    <div class="quiz-actions">
+                        <button type="button" class="btn quiz-next">Próxima pergunta</button>
+                    </div>
+                </div>
 
-                <details class="faq-item">
-                    <summary>Por que devo usar autenticação de dois fatores?</summary>
-                    <p>Porque ela adiciona uma segunda camada de proteção, dificultando o acesso indevido mesmo quando a senha é descoberta.</p>
-                </details>
-            </div>
+                <div class="quiz-step quiz-question" data-answer="a">
+                    <div class="quiz-step-header">
+                        <h3>3. O que a autenticação de dois fatores adiciona?</h3>
+                        <span class="quiz-progress">Pergunta 3 de 5</span>
+                    </div>
+                    <label class="quiz-option"><input type="radio" name="q3" value="a"> Uma etapa extra de verificação.</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="b"> Mais vírus no dispositivo.</label>
+                    <label class="quiz-option"><input type="radio" name="q3" value="c"> Um novo navegador.</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                    <div class="quiz-actions">
+                        <button type="button" class="btn quiz-next">Próxima pergunta</button>
+                    </div>
+                </div>
+
+                <div class="quiz-step quiz-question" data-answer="b">
+                    <div class="quiz-step-header">
+                        <h3>4. O que deve fazer antes de clicar num link suspeito?</h3>
+                        <span class="quiz-progress">Pergunta 4 de 5</span>
+                    </div>
+                    <label class="quiz-option"><input type="radio" name="q4" value="a"> Clicar rapidamente para não perder tempo.</label>
+                    <label class="quiz-option"><input type="radio" name="q4" value="b"> Verificar o endereço e a origem da mensagem.</label>
+                    <label class="quiz-option"><input type="radio" name="q4" value="c"> Partilhar com amigos antes de ler.</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                    <div class="quiz-actions">
+                        <button type="button" class="btn quiz-next">Próxima pergunta</button>
+                    </div>
+                </div>
+
+                <div class="quiz-step quiz-question" data-answer="c">
+                    <div class="quiz-step-header">
+                        <h3>5. O que é ransomware?</h3>
+                        <span class="quiz-progress">Pergunta 5 de 5</span>
+                    </div>
+                    <label class="quiz-option"><input type="radio" name="q5" value="a"> Um tipo de computador novo.</label>
+                    <label class="quiz-option"><input type="radio" name="q5" value="b"> Uma senha longa e segura.</label>
+                    <label class="quiz-option"><input type="radio" name="q5" value="c"> Um ataque que bloqueia ou cifra ficheiros e pede resgate.</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                    <div class="quiz-actions">
+                        <button type="submit" class="btn">Ver Resultado</button>
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="quiz-result" aria-live="polite"></div>
+            </form>
 
             <div class="button-row">
-                <a href="index.html" class="btn">Voltar para a Página Inicial</a>
+                <a href="index.html" class="btn btn-secondary">Voltar para a Página Inicial</a>
             </div>
         </section>
     </main>
 
-<footer class="site-footer">
+    <footer class="site-footer">
         <div class="container site-footer-grid">
             <section class="footer-brand">
                 <h3>RafaCyber</h3>
-                <p>Seguranca alem do click. Encontre-me tambem nas minhas outras plataformas.</p>
+                <p>Segurança além do click. Encontre-me também nas minhas outras plataformas.</p>
             </section>
 
             <section class="footer-nav"></section>
@@ -73,54 +134,42 @@
                     <span class="social-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M14 3c.2 1.7 1.1 3.2 2.4 4.3 1.3 1 2.9 1.6 4.6 1.7v3.1c-1.5-.1-3-.5-4.3-1.2v6.3c0 3.3-2.7 5.8-6.1 5.8-3.2 0-5.8-2.3-5.8-5.4 0-3.3 2.7-5.6 6-5.6.3 0 .6 0 .9.1v3.1a3.7 3.7 0 0 0-.9-.1c-1.5 0-2.8 1-2.8 2.5 0 1.4 1.1 2.4 2.6 2.4 1.7 0 2.4-1.1 2.4-2.7V3h3z"></path></svg>
                     </span>
-                    <span class="social-label">
-                        <span class="social-name">TikTok</span>
-                    </span>
+                    <span class="social-label"><span class="social-name">TikTok</span></span>
                 </a>
                 <a href="#" class="social-link">
                     <span class="social-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.7-1.6H17V3.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10H8v3h2.8v8h2.7z"></path></svg>
                     </span>
-                    <span class="social-label">
-                        <span class="social-name">Facebook</span>
-                    </span>
+                    <span class="social-label"><span class="social-name">Facebook</span></span>
                 </a>
                 <a href="#" class="social-link">
                     <span class="social-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2.2A1.8 1.8 0 0 0 5.2 7v10c0 1 .8 1.8 1.8 1.8h10c1 0 1.8-.8 1.8-1.8V7c0-1-.8-1.8-1.8-1.8H7zm10.3 1.6a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 7.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2.2A2.3 2.3 0 1 0 14.3 12 2.3 2.3 0 0 0 12 9.7z"></path></svg>
                     </span>
-                    <span class="social-label">
-                        <span class="social-name">Instagram</span>
-                    </span>
+                    <span class="social-label"><span class="social-name">Instagram</span></span>
                 </a>
                 <a href="https://github.com/RafaCyberTech" class="social-link" target="_blank" rel="noopener noreferrer">
                     <span class="social-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.3 6.8 9.6.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.2-3.4-1.2-.4-1.2-1.1-1.5-1.1-1.5-.9-.6 0-.6 0-.6 1 .1 1.6 1.1 1.6 1.1.9 1.6 2.4 1.1 3 .8.1-.7.4-1.1.7-1.4-2.2-.3-4.6-1.1-4.6-5.1 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .9-.3 2.8 1a9.8 9.8 0 0 1 5.2 0c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.7.7 1 1.6 1 2.7 0 4-2.4 4.8-4.7 5.1.4.3.8 1 .8 2v3c0 .3.2.6.7.5 3.9-1.3 6.8-5.1 6.8-9.6C22 6.6 17.5 2 12 2z"></path></svg>
                     </span>
-                    <span class="social-label">
-                        <span class="social-name">GitHub</span>
-                    </span>
+                    <span class="social-label"><span class="social-name">GitHub</span></span>
                 </a>
                 <a href="https://RafaCyberTech.github.io/Portfolio/" class="social-link" target="_blank" rel="noopener noreferrer">
                     <span class="social-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M6 4h8a4 4 0 0 1 0 8H9v8H6V4zm3 2v4h4a2 2 0 0 0 0-4H9z"></path></svg>
                     </span>
-                    <span class="social-label">
-                        <span class="social-name">Portfolio</span>
-                    </span>
+                    <span class="social-label"><span class="social-name">Portfolio</span></span>
                 </a>
                 <a href="#" class="social-link">
                     <span class="social-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10 15.5v-7l6 3.5-6 3.5z"></path></svg>
                     </span>
-                    <span class="social-label">
-                        <span class="social-name">YouTube</span>
-                    </span>
+                    <span class="social-label"><span class="social-name">YouTube</span></span>
                 </a>
             </section>
         </div>
         <div class="container footer-bottom">
-            <p>&copy; 2026 RafaCyber | Seguranca alem do click!</p>
+            <p>&copy; 2026 RafaCyber | Segurança além do click!</p>
         </div>
     </footer>
 </body>
