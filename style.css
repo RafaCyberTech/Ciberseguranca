@@ -798,6 +798,22 @@ a {
     color: var(--primary);
 }
 
+/* Footer: center brand text and make socials align nicely */
+.site-footer .footer-brand {
+    text-align: center;
+}
+
+.site-footer .footer-brand h3 {
+    margin-bottom: 6px;
+}
+
+.site-footer .footer-socials {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
 .network-type p {
     margin: 0;
 }
@@ -1146,6 +1162,20 @@ a {
 
 .footer-bottom p {
     margin: 18px 0 0;
+}
+
+/* Ensure footer brand and socials are centered within the footer grid */
+.site-footer-grid {
+    justify-items: center;
+}
+
+.site-footer .footer-brand {
+    justify-self: center;
+    text-align: center;
+}
+
+.site-footer .footer-socials {
+    justify-self: center;
 }
 
 @media (max-width: 900px) {

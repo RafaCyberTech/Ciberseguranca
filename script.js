@@ -173,29 +173,68 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     var form = document.getElementById("contact-form");
-    var status = document.getElementById("form-status");
+    var whatsappBtn = document.getElementById("send-whatsapp");
+    var gmailBtn = document.getElementById("send-gmail");
 
-    if (!form || !status || !window.emailjs) {
+    if (!form) {
         return;
     }
 
-    var publicKey = "1LScugh9Lzztnt-hz";
-    var templateId = "template_fg6buew";
-    var serviceId = "service_16mvfsd";
-
-    emailjs.init(publicKey);
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        status.textContent = "A enviar a mensagem...";
-        status.classList.add("is-visible");
-
-        emailjs.sendForm(serviceId, templateId, form).then(function () {
-            status.textContent = "Mensagem enviada com sucesso para o meu email.";
-            form.reset();
-        }).catch(function () {
-            status.textContent = "Não foi possível enviar. Falta definir o Service ID correto no EmailJS.";
-        });
+    // Prevent the form's default submit (e.g., Enter key) — we use only the two buttons
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
     });
+
+    // WhatsApp send handler (works even if EmailJS is not available)
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener("click", function () {
+            var nome = document.getElementById("nome") ? document.getElementById("nome").value.trim() : "";
+            var emailVal = document.getElementById("email") ? document.getElementById("email").value.trim() : "";
+            var assunto = document.getElementById("assunto") ? document.getElementById("assunto").value.trim() : "";
+            var mensagem = document.getElementById("mensagem") ? document.getElementById("mensagem").value.trim() : "";
+
+            var text = "Nome: " + nome + "\n" +
+                "Email: " + emailVal + "\n" +
+                "Assunto: " + assunto + "\n" +
+                "Mensagem: " + mensagem;
+
+            var encoded = encodeURIComponent(text);
+            // Número com código internacional (Moçambique +258)
+            var phone = "258844239917";
+            var url = "https://wa.me/" + phone + "?text=" + encoded;
+
+            window.open(url, "_blank");
+        });
+    }
+
+    // Gmail send handler — open Gmail web compose; fallback to mailto if popup blocked
+    if (gmailBtn) {
+        gmailBtn.addEventListener("click", function () {
+            var nome = document.getElementById("nome") ? document.getElementById("nome").value.trim() : "";
+            var emailVal = document.getElementById("email") ? document.getElementById("email").value.trim() : "";
+            var assunto = document.getElementById("assunto") ? document.getElementById("assunto").value.trim() : "Contacto via RafaCyber";
+            var mensagem = document.getElementById("mensagem") ? document.getElementById("mensagem").value.trim() : "";
+
+            var subject = assunto || "Contacto via RafaCyber";
+            var body = "Nome: " + nome + "\n" +
+                "Email: " + emailVal + "\n" +
+                "Mensagem: " + mensagem;
+
+            var gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=rafiqueusebionorapelana@gmail.com" +
+                "&su=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
+
+            var mailto = "mailto:rafiqueusebionorapelana@gmail.com" +
+                "?subject=" + encodeURIComponent(subject) +
+                "&body=" + encodeURIComponent(body);
+
+            var win = window.open(gmailUrl, "_blank");
+            if (!win) {
+                // Popup blocked or can't open new tab — fallback to mailto
+                window.location.href = mailto;
+            }
+        });
+    }
+
+    // No EmailJS integration — form actions are handled via WhatsApp and Gmail buttons
 });
